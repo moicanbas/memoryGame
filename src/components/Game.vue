@@ -54,12 +54,16 @@
           v-for="card in cards"
           :key="card.id"
           @click="flipCard(card)"
-          class="flex items-center justify-center rounded-lg transition transform select-none w-12 h-12 sm:w-16 sm:h-16 lg:w-30 lg:h-30"
+          class="flex items-center justify-center rounded-lg transition transform select-none"
+
           :class="[
             card.matched
               ? 'bg-green-300 cursor-default'
               : 'cursor-pointer hover:scale-105 ' +
                 (card.flipped ? 'bg-white' : 'bg-purple-400'),
+                difficulty==='easy'?'w-18 h-18 sm:w-16 sm:h-16 lg:w-30 lg:h-30'
+                :difficulty==='medium'?'w-12 h-12 sm:w-16 sm:h-16 lg:w-22 lg:h-22'
+                :'w-6 h-6 sm:w-12 sm:h-12  md:w-12 md:h-12 lg:w-14 lg:h-14'
           ]"
         >
           <span
